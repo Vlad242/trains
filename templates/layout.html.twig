@@ -1,0 +1,143 @@
+{% extends 'base.html.twig' %}
+
+{% block header %}
+<div class="main-wrapper">
+    <div class="header-area">
+        <div class="header-bottom-area header-sticky">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="header-menu-wrap border-top-1">
+                            <div class="main-menu">
+                                <nav class="main-navigation">
+                                    <ul>
+                                        <li class="active">
+                                            <a href="{{ path('homepage') }}"><i class="fa fa-home"></i> Головна</a>
+                                        </li>
+                                        <li><a href=""><i class="fa fa-users"></i> Спільнота</a>
+                                            <ul class="sub-menu">
+                                                <li><a href="#"><i class="fa fa-chevron-right" style="color: #fb7832;"></i> Актуальні дослідження</a></li>
+                                                <li><a href="{{ path('region-list') }}"><i class="fa fa-chevron-right" style="color: #fb7832;"></i> База регіонів дослідження</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="#"><i class="fa fa-kiwi-bird"></i> Птахи</a>
+                                            <ul class="sub-menu">
+                                                <li><a href="#"><i class="fa fa-chevron-right" style="color: #fb7832;"></i> Загальна база даних птахів</a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a href="#"><i class="fa fa-images"></i> Галерея</a>
+                                        </li>
+                                        {% if app.user %}
+                                            <li>
+                                                 <a href="" class="user-edit-menu"><i class="fa fa-edit"></i> Дії користувача</a>
+                                                 <ul class="sub-menu">
+                                                    <li><a href="{{ path('map_builder') }}"><i class="fa fa-chevron-right" style="color: #0062cc;"></i> Нова зона досліджень</a></li>
+                                                    <li><a href="#"><i class="fa fa-chevron-right" style="color: #0062cc;"></i> База птахів (управління)</a></li>
+                                                    <li><a href="#"><i class="fa fa-chevron-right" style="color: #0062cc;"></i> Управління дослідженнями</a></li>
+                                                 </ul>
+                                            </li>
+                                        {% endif %}
+                                    </ul>
+                                </nav>
+                            </div>
+                            {% if app.user %}
+                            <div class="main-menu">
+                                 <nav class="main-navigation">
+                                     <ul>
+                                         <li class="active"><a href=""><i class="fa fa-user"></i> {{ app.user.username }}</a>
+                                             <ul class="sub-menu">
+                                             <li><a href="{{ path('user_panel')}}"><i class="fa fa-id-card" style="color: #fb7832;"></i> Кабінет користувача</a></li>
+                                                 <li><a href="{{ path('app_logout')}}"><i class="fa fa-sign-out" style="color: #fb7832;"></i> Вихід</a></li>
+                                              </ul>
+                                         </li>
+                                     </ul>
+                                 </nav>
+                            </div>
+                              {% else %}
+                                <div class="main-menu">
+                                 <nav class="main-navigation">
+                                     <ul>
+                                         <li class="active"><a href="#"><i class="fa fa-sign-in"></i> Увійти</a>
+                                             <ul class="sub-menu">
+                                                 <li><a href="{{ path('app_login') }}"><i class="fa fa-sign-in" style="color: #fb7832;"></i> Авторизація</a></li>
+                                                 <li><a href="{{ path('app_register')}}"><i class="fa fa-registered" style="color: #fb7832;"></i> Реєстрація</a></li>
+                                              </ul>
+                                         </li>
+                                     </ul>
+                                 </nav>
+                            </div>
+                              {% endif %}
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="mobile-menu d-block d-lg-none"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endblock %}
+{% block body %}{% endblock %}
+{% block footer %}
+    <footer class="footer-area">
+        <div class="footer-top pt--50 pb--100">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-md-4">
+                        <div class="footer-info mt--60">
+                            <div class="logo">
+                                <a href="#"><img src="{{ asset('images/cacadu_ico.png') }}" alt="LOGO"></a>
+                            </div>
+                            <p>Черкаський орнітологічний клуб імені Богдана Хмельницького.</p>
+                            <ul class="social">
+                                <li><a href="#"><i class="icofont-facebook"></i></a></li>
+                                <li><a href="#"><i class="icofont-google-plus"></i></a></li>
+                                <li><a href="#"><i class="icofont-twitter"></i></a></li>
+                                <li><a href="#"><i class="icofont-pinterest"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-1"></div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="footer-info mt--60">
+                            <div class="footer-title">
+                                <h3>Посилання</h3>
+                            </div>
+                            <ul class="footer-list">
+                                <li><a href="#">Heating Repair</a></li>
+                                <li><a href="#">Plumbing Services</a></li>
+                                <li><a href="#">Air Conditioning Repair</a></li>
+                                <li><a href="#">Electrical Services</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="footer-info mt--60">
+                            <div class="footer-title">
+                                <h3>Контакти</h3>
+                            </div>
+                            <ul class="footer-list">
+                                <li>18031, м. Черкаси, б-р Шевченка, 81</li>
+                                <li><a href="#"><i class="fa fa-mail-bulk"></i> cic@cdu.edu.ua</a></li>
+                                <li><a href="#"><i class="fa fa-phone-alt"></i>  (0472) 35-44-63</a></li>
+                                <li><a href="https://cdu.edu.ua/"><i class="fa fa-link"></i> https://cdu.edu.ua/</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="footer-bottom-inner text-center">
+                            <p>Copyright &copy; Cherkassy 2020 All Right Reserved</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+{% endblock %}

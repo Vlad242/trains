@@ -1,0 +1,336 @@
+{% extends 'layout.html.twig' %}
+
+{% block body %}
+        <div class="hero-slider hero-slider-1">
+            <div class="single-slide overly-bg-black" style="background-image: url({{ asset('images/slider/Slider4.jpg') }})">
+                <div class="hero-content-one container">
+                    <div class="row">
+                        <div class="col-lg-12 ">
+                            <div class="slider-text-info">
+                                <h1>Публікуй тут <br> найактуальніші дослідження в сфері орнітології</h1>
+                                <p>Будь частиною нашої команди, опиши свої дослідження!</p>
+                                <div class="slider-button">
+                                    <a href="#" class="default-btn border-radius">Переглянути дослідження</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="our-service-area bg-grey section-pt section-pb-80">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="section-title">
+                            <h1>ОСТАННІ ПУБЛІКАЦІЇ</h1>
+                            <h4>Загальні орнітологічні дослідження учасників нашої команди</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="row service-slider-active">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="single-service mt--30 mb--30">
+                            <div class="service-image">
+                                <img src="{{ asset('images/slider/Slider1.jpg') }}" alt="">
+                            </div>
+                            <div class="service-content text-center">
+                                <h3><a href="#">Орлан білоголовий</a></h3>
+                                <p>Дослідження зимування орлана білоголового на території Канівського природного заповідника</p>
+                                <a href="#">Детальніше</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4  col-md-6">
+                        <div class="single-service mt--30 mb--30">
+                            <div class="service-image">
+                                <img src="{{ asset('images/slider/Slider2.jpg') }}" alt="">
+                            </div>
+                            <div class="service-content text-center">
+                                <h3><a href="#">Wide Selection</a></h3>
+                                <p>Various versions have evolved over the years, sometimes by accident,</p>
+                                <a href="#" class="border-radius">READ MORE</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4  col-md-6">
+                        <div class="single-service mt--30 mb--30">
+                            <div class="service-image">
+                                <img src="{{ asset('images/slider/Slider3.jpg') }}" alt="">
+                            </div>
+                            <div class="service-content text-center">
+                                <h3><a href="#">Heating & Water</a></h3>
+                                <p>Various versions have evolved over the years, sometimes by accident,</p>
+                                <a href="#">READ MORE</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4  col-md-6 mb--30">
+                        <div class="single-service mt--30">
+                            <div class="service-image">
+                                <img src="{{ asset('images/slider/Slider4.jpg') }}" alt="">
+                            </div>
+                            <div class="service-content text-center">
+                                <h3><a href="#">Ac & Heating</a></h3>
+                                <p>Various versions have evolved over the years, sometimes by accident,</p>
+                                <a href="#">READ MORE</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="repair-make-area">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 col-md-6">
+                        <div class="repair-service-inner">
+                            <h3>Характеристика районів дослідження</h3>
+                            <h2>Черккська область</h2>
+                            <p>Наша команда займається орнітологічними дослідженнями вже близько 20 років. Ареал дослідження - наш рідний край, Черкаська область.</p>
+                            <div class="make-apoinment-button">
+                                <a href="#" class="default-btn border-radius">Детальніше про дослідження</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        <div class="repair-image pt--30">
+                            <img src="{{ asset('images/cherkassy_map.png') }}" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-count-inner bg-grey section-pb section-pt-80">
+            <div class="container">
+                <div class="row project-count-header">
+                    <h2>Статистика досліджень</h2>
+                </div>
+                <div class="row">
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="counter text-center">
+                            <h3 class="counter-active">4582</h3>
+                            <p>Видів птахів виявлено</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="counter text-center">
+                            <h3 class="counter-active">750</h3>
+                            <p>Актуальних досліджень станом на 2020 рік</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="counter text-center">
+                            <h3 class="counter-active">315</h3>
+                            <p>Актів досліджень</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="counter text-center">
+                            <h3 class="counter-active">3652</h3>
+                            <p>Нових записів в базі птахів регіону</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="your-opinion-area overly-bg-black opinion-bg section-ptb">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 ml-auto mr-auto">
+                        <div class="your-opinion-wrap">
+                            <h2>Галерея птахів</h2>
+                            <div class="opinion-content-inner">
+                                <div class="row">
+                                    <div class="col col-md-4">
+                                        <a href="#">
+                                            <img class="gallery-item" src="{{ asset('images/slider/Slider1.jpg') }}" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="col col-md-4">
+                                        <a href="#">
+                                            <img class="gallery-item" src="{{ asset('images/slider/Slider1.jpg') }}" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="col col-md-4">
+                                        <a href="#">
+                                            <img class="gallery-item" src="{{ asset('images/slider/Slider1.jpg') }}" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="col col-md-4">
+                                        <a href="#">
+                                            <img class="gallery-item" src="{{ asset('images/slider/Slider1.jpg') }}" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="col col-md-4">
+                                        <a href="#">
+                                            <img class="gallery-item" src="{{ asset('images/slider/Slider1.jpg') }}" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="col col-md-4">
+                                        <a href="#">
+                                            <img class="gallery-item" src="{{ asset('images/slider/Slider1.jpg') }}" alt="">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="make-apoinment-button">
+                                <a href="#" class="default-btn border-radius">Відкрити галерею</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="faq-area bg-grey section-ptb">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="section-title">
+                            <h4>Актуальні методи дослідження в орнітології</h4>
+                            <h2>Для орнітологів-початківців</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 col-md-6">
+                        <div class="single-faq text-center">
+                            <div class="title-content">
+                                <h4>Картографічний метод дослідження</h4>
+                                <i class="fa fa-map"></i>
+                                <hr>
+                            </div>
+                            <p>Картографічний метод дослідження — метод наукового дослідження, у якому карта виступає як модель досліджуваного об'єкта і проміжна ланка між об'єктом і дослідником.</p>
+                            <div class="make-apoinment-button">
+                                <a href="{{ path('region-list') }}" class="default-btn border-radius">Детальніше про дослідження</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        <div class="single-faq text-center">
+                            <div class="title-content">
+                                <h4>Маршрутний метод досілдження</h4>
+                                <i class="fa fa-route"></i>
+                                <hr>
+                            </div>
+                            <p>Маршрутний метод дослідження дає уявлення про просторову зміну природних комплексів, а також еколого-географічні фактори їх формування, про генетичні сполучення природних комплексів.</p>
+                            <div class="make-apoinment-button">
+                                <a href="#" class="default-btn border-radius">Детальніше про дослідження</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        <div class="single-faq text-center">
+                            <div class="title-content">
+                                <h4>Точковий метод дослідження</h4>
+                                <i class="fa fa-map-marker-alt"></i>
+                                <hr>
+                            </div>
+                            <p>Методика є різновидом обліку в очеретяних заростях, де час спостережень в одній точці залежить від цілей досліджень.</p>
+                            <div class="make-apoinment-button">
+                                <a href="#" class="default-btn border-radius">Детальніше про дослідження</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        <div class="single-faq text-center">
+                            <div class="title-content">
+                                <h4>Комбінований метод дослідження</h4>
+                                <i class="fa fa-ruler-combined"></i>
+                                <hr>
+                            </div>
+                            <p>Комбінований метод передбачає різноманітне комбінування різних видів дослідження, одним із частих випадків комбінувань є картографічний та точковий методи. При комбінованому медоді інформативність дослідження збільшується в рази.</p>
+                            <div class="make-apoinment-button">
+                                <a href="#" class="default-btn border-radius">Детальніше про дослідження</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="something-new-area something-new-bg overly-bg-black section-ptb">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="something-new-inner text-center text-white">
+                            <h2>Приєднуйтесь до нашої спільнноти</h2>
+                            <p>Якщо орнітологія - це твоя професія чи хоббі приєднуйся щоб разом дослідити різноманітну орнітофауну нашого краю!</p>
+                            <div class="contact-us-button">
+                                <a href="{{ path('app_register') }}" class="default-btn border-radius">Реєстрація</a>
+                                <a href="{{ path('app_login') }}" class="primary-btn border-radius">Авторизація</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block footer %}
+    <footer class="footer-area">
+        <div class="footer-top pt--50 pb--100">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-md-4">
+                        <div class="footer-info mt--60">
+                            <div class="logo">
+                                <a href="#"><img src="{{ asset('images/cacadu_ico.png') }}" alt="LOGO"></a>
+                            </div>
+                            <p>Черкаський орнітологічний клуб імені Богдана Хмельницького.</p>
+                            <ul class="social">
+                                <li><a href=""><i class="icofont-facebook"></i></a></li>
+                                <li><a href=""><i class="icofont-google-plus"></i></a></li>
+                                <li><a href=""><i class="icofont-twitter"></i></a></li>
+                                <li><a href=""><i class="icofont-pinterest"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-1"></div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="footer-info mt--60">
+                            <div class="footer-title">
+                                <h3>Посилання</h3>
+                            </div>
+                            <ul class="footer-list">
+                                <li><a href="{{ path('homepage') }}">Домашня сторінка</a></li>
+                                <li><a href="{{ path('region-list') }}">Карта досліджень</a></li>
+                                <li><a href="#">Актульні дослідження</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="footer-info mt--60">
+                            <div class="footer-title">
+                                <h3>Контакти</h3>
+                            </div>
+                            <ul class="footer-list">
+                                <li>18031, м. Черкаси, б-р Шевченка, 81</li>
+                                <li><a href="#"><i class="fa fa-mail-bulk"></i> cic@cdu.edu.ua</a></li>
+                                <li><a href="#"><i class="fa fa-phone-alt"></i>  (0472) 35-44-63</a></li>
+                                <li><a href="https://cdu.edu.ua/"><i class="fa fa-link"></i> https://cdu.edu.ua/</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="footer-bottom-inner text-center">
+                            <p>Copyright &copy; Cherkassy 2020 All Right Reserved</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+{% endblock %}
