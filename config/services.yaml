@@ -25,3 +25,27 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+
+    App\Service\RegionImageUploader:
+        arguments:
+            $targetDirectory: '%kernel.project_dir%/public/uploads/region'
+
+    App\Service\RegionImageRemover:
+        arguments:
+            $targetDirectory: '%kernel.project_dir%/public/uploads/region'
+
+    App\Service\MapImageUploader:
+        arguments:
+            $targetDirectory: '%kernel.project_dir%/public/uploads/map'
+
+    App\Service\MapImageRemover:
+        arguments:
+            $targetDirectory: '%kernel.project_dir%/public/uploads/map'
+
+    App\Service\BirdImageUploader:
+        arguments:
+            $targetDirectory: '%kernel.project_dir%/public/uploads/birds'
+
+    App\Service\BirdImageRemover:
+        arguments:
+            $targetDirectory: '%kernel.project_dir%/public/uploads/birds'
