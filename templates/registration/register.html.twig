@@ -1,0 +1,21 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Реєстрація користувача{% endblock %}
+
+{% block body %}
+    <div class="register register-bg">
+       <div class="container">
+           <h1>Реєстрація користувача</h1>
+           <hr>
+
+           {{ form_start(registrationForm) }}
+           {{ form_row(registrationForm.email) }}
+           {{ form_row(registrationForm.username) }}
+           {{ form_row(registrationForm.plainPassword) }}
+           {{ form_row(registrationForm.agreeTerms) }}
+
+           <button type="submit" class="btn">Реєстрація</button>
+           {{ form_end(registrationForm) }}
+       </div>
+    </div>
+{% endblock %}
