@@ -36,15 +36,31 @@ class BirdsRepository extends ServiceEntityRepository
     }
     */
 
-    /*
-    public function findOneBySomeField($value): ?Birds
+    public function findLastSixBirdsField()
     {
         return $this->createQueryBuilder('b')
-            ->andWhere('b.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
+            ->orderBy('b.id', 'ASC')
+            ->setMaxResults(6)
+            ->getQuery()->getResult();
     }
-    */
+
+    public function findForGalleryField()
+    {
+        return $this->createQueryBuilder('b')
+            ->addSelect('b.id')
+            ->addSelect('b.image')
+            ->addSelect('b.name')
+            ->getQuery()->getResult();
+    }
+
+    public function findForGalleryIndexField()
+    {
+        return $this->createQueryBuilder('b')
+            ->addSelect('b.id')
+            ->addSelect('b.image')
+            ->addSelect('b.name')
+            ->orderBy('b.id', 'ASC')
+            ->setMaxResults(6)
+            ->getQuery()->getResult();
+    }
 }

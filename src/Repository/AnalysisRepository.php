@@ -36,15 +36,19 @@ class AnalysisRepository extends ServiceEntityRepository
     }
     */
 
-    /*
-    public function findOneBySomeField($value): ?Analysis
+    public function findByUserId($userId)
     {
         return $this->createQueryBuilder('a')
-            ->andWhere('a.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
+            ->andWhere('a.user = :val')
+            ->setParameter('val', $userId)
+            ->getQuery()->getResult();
     }
-    */
+
+    public function findLastTen()
+    {
+        return $this->createQueryBuilder('a')
+            ->orderBy('a.id', 'ASC')
+            ->setMaxResults(10)
+            ->getQuery()->getResult();
+    }
 }
