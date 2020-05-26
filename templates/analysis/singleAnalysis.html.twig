@@ -1,0 +1,85 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}
+    {{ analys.theme }}
+{% endblock %}
+
+{% block body %}
+    <div class="our-service-area bg-grey pd-btm-50">
+        <div class="container">
+            <div class="container-header">
+                <h3 class="container-title">"{{ analys.theme }}"</h3>
+            </div>
+            <div class="container-body">
+                <div class="bird-container-lg">
+                    <div class="bird-image-lg">
+                        <img src="{{ asset('/uploads/analysis/' ~ analys.image) }}" alt="">
+                    </div>
+                    <div class="bird-data-lg">
+                        <div class="bird-info-item-lg">
+                            <h4>Короткий опис: {{ analys.description }} </h4>
+                            {% if app.user %}
+                                <small style="color: #FF8C0B"><i class="fa fa-calendar"></i> {{ analys.createdAt | date('yy:m:d')}}</small>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="container-header">
+                        <h3 class="container-title">Деталі дослідження:</h3>
+                        <a href="{{ path('report_add') }}" class="default-btn absolute-right-top">Додати новий звіт дослідження</a>
+                        <div class="accordion" id="accordion">
+                            {% for report in reports %}
+                            <div class="card">
+                                <div class="card-header" id="heading{{ report.id }}">
+                                    <h2 class="mb-0">
+                                        <a data-toggle="collapse" data-target="#collapse{{ report.id }}" aria-expanded="true" aria-controls="collapse{{ report.id }}" style="font-size: 16px; font-weight: bold; padding: 5px 0;">
+                                            {{ report.theme }}
+                                            {% if app.user %}
+                                                <a href="{{ path('new_point', {'report': report.id, 'analysis': report.analysis.id }) }}" class="default-btn absolute-right-top">Додати точку маршруту дослідження</a>
+                                            {% endif %}
+                                        </a>
+                                    </h2>
+                                </div>
+                                <div id="collapse{{ report.id }}" class="collapse" aria-labelledby="heading{{ report.id }}" data-parent="#accordion">
+                                    <div class="card-body">
+                                        <p><b>Ремарка звіту: </b>{{ report.description }}</p>
+                                        <small style="color: #FF8C0B"><i class="fa fa-calendar"></i> {{ report.createdAt | date('yy:m:d')}}</small>
+                                        <hr>
+                                        <object class="docs" data="{{ asset('uploads/reports/' ~ report.document) }}" type="application/pdf" width="100%" height="500px"></object>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="container-header">
+                        <h3 class="container-title">Карта дослідження:</h3>
+                    </div>
+                    <div class="analysis-map">
+                        <p>На карті позначені всі точки досліджень!</p>
+                        <img src="{{ asset('/uploads/map/' ~ analys.map) }}" alt="{{ analys.theme }}">
+                        {% for point in points %}
+                            <div class="scheme-item" data-id="{{ point.id }}" style="top: {{ point.pointY }}px; left: {{ point.pointX }}px;">
+                                <div class="scheme-name"><i class="fa fa-map-marker-alt map-point"></i></div>
+                                <div class="scheme-popup">
+                                    <p>
+                                        <b>Відноситься до звіту: </b> {{ point.report.theme }}
+                                    </p>
+                                    <p>
+                                        <b>Опис точки: </b> {{ point.description}}
+                                    </p>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+{% block javascript %}
+<script src="{{ asset('js/map.js') }}"></script>
+{% endblock %}

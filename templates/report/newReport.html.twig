@@ -1,0 +1,28 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Створення нового звіту{% endblock %}
+
+{% block body %}
+<div class="our-service-area bg-grey pd-btm-50">
+    <div class="container">
+        <div class="container-header">
+            <h3 class="container-title">Створення нового звіту:</h3>
+            <hr>
+        </div>
+        <div class="container-body">
+            <div class="container-form">
+                {{ form_start(form) }}
+
+                {{ form_row(form.bird) }}
+                {{ form_row(form.analysis) }}
+                {{ form_row(form.theme) }}
+                {{ form_row(form.description) }}
+                {{ form_row(form.document) }}
+
+                <button type="submit" class="btn">Додати звіт</button>
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

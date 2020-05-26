@@ -1,23 +1,39 @@
 {% extends 'layout.html.twig' %}
 
-{% block title %}База даних регіонів{% endblock %}
+{% block title %}Додавання ареалу{% endblock %}
 
 {% block body %}
-<div class="our-service-area bg-grey">
+<div class="our-service-area bg-grey pd-btm-50">
     <div class="container">
         <div class="container-header">
-            <h3 class="container-title">База регіонів дослідження</h3>
+            <h3 class="container-title">Додавання ареалу існування птаха:</h3>
             <hr>
         </div>
         <div class="container-body">
+            <div class="container-form">
+                {{ form_start(form) }}
+
+                {{ form_row(form.bird) }}
+                {{ form_row(form.region) }}
+                {{ form_row(form.population) }}
+                {{ form_row(form.pointX) }}
+                {{ form_row(form.pointY) }}
+
+                <button type="submit" class="btn">Додати ареал</button>
+                {{ form_end(form) }}
+            </div>
+        </div>
+        <hr>
+        <div class="container-body">
             <div class="map-container">
                 <img src="{{ asset('images/cherkassy_map.png') }}" alt="Cherkassy">
-                <svg id="coordinate-svg" class="map-svg" width="1200" height="1000" >
-                    <polygon id="polygon" points=""></polygon>
+                <svg id="coordinate-svg-for-bird" class="map-svg" width="1200" height="1000" >
+                    <polygon id="active-polygon" points=""></polygon>
                     {% for region in regionList %}
                         <polygon data-id="{{ region.id }}" points="{{ region.polygon }}"></polygon>
                     {% endfor %}
                 </svg>
+                <i id="center-polygon" class="fa fa-map-marker-alt"></i>
 
                 {% for region in regionList %}
                     <div class="scheme-item" data-id="{{ region.id }}" style="top: {{ region.pointX }}px; left: {{ region.pointY }}px;">
@@ -53,5 +69,5 @@
 {% endblock %}
 
 {% block javascript %}
-    <script src="{{ asset('js/map.js') }}"></script>
+<script src="{{ asset('js/map.js') }}"></script>
 {% endblock %}

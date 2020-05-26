@@ -1,0 +1,67 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}{{ bird.name }}{% endblock %}
+
+{% block body %}
+    <div class="our-service-area bg-grey pd-btm-50">
+        <div class="container">
+            <div class="container-header">
+                <h3 class="container-title">"{{ bird.name }}"</h3>
+            </div>
+            <div class="container-body">
+                <div class="bird-container-lg">
+                    <div class="bird-image-lg">
+                        <img src="{{ asset('/uploads/birds/' ~ bird.image) }}" alt="">
+                    </div>
+                    <div class="bird-data-lg">
+                        <div class="bird-title-lg">
+                            <h3>{{ bird.name }}</a></h3>
+                        </div>
+                        <hr>
+                        <div class="bird-info-item-lg">
+                            <h4>Номер кільцювання: {{ bird.id }} </h4>
+                        </div>
+                        <div class="bird-info-item-lg">
+                            <h4>Еко група: {{ bird.ecoGroup.name }} ({{ bird.ecoGroup.description }})</h4>
+                        </div>
+                        <div class="bird-info-item-lg">
+                            <h4>Класифікація: {{ bird.classification.name }} ({{ bird.classification.characteristic }})</h4>
+                        </div>
+                        <div class="bird-info-item-lg">
+                            <h4>Вік особини: {{ bird.age}}</h4>
+                        </div>
+                        <div class="bird-info-item-lg">
+                            <h4>Стать особини:
+                                {% if bird.gender == 'F' %}
+                                    Жіноча
+                                {% else %}
+                                    Чоловіча
+                                {% endif %}
+                            </h4>
+                        </div>
+                        <div class="bird-info-item-lg">
+                            <h4>Кількість зон популяції: {{ populationPoints|length }}</h4>
+                        </div>
+                        <div class="bird-info-item-lg">
+                            <h4>Загальна популяція: {{ populationSum }}</h4>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="container-header">
+                        <h3 class="container-title">Ареал мешкання:</h3>
+                    </div>
+                    <div class="map-container">
+                        <img src="{{ asset('images/cherkassy_map.png') }}" alt="Cherkassy">
+                        {% for point in populationPoints %}
+                            <i id="center-polygon-alt"
+                               class="fa fa-map-marker-alt"
+                               style="top: {{ point.pointX }}px; left: {{ point.pointY }}px; ">
+                                {{ point.population }}
+                            </i>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

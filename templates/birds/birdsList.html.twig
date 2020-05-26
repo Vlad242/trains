@@ -1,0 +1,47 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}База даних птахів:{% endblock %}
+
+{% block body %}
+<div class="our-service-area bg-grey pd-btm-50">
+    <div class="container">
+        <div class="container-header">
+            <h3 class="container-title">Додавання нового птаха до бази даних:</h3>
+            <hr>
+        </div>
+        <div class="container-body">
+            {% for bird in birdsList %}
+                <div class="bird-container">
+                    <div class="bird-image">
+                        <img src="{{ asset('/uploads/birds/' ~ bird.image) }}" alt="">
+                    </div>
+                    <div class="bird-data">
+                        <div class="bird-title">
+                            <h3><a href="{{ path('single_bird', {'bird': bird.id}) }}">{{ bird.name }}</a></h3>
+                        </div>
+                        <hr>
+                        <div class="bird-info-item">
+                            <h4>Еко група: {{ bird.ecoGroup.name }}</h4>
+                        </div>
+                        <div class="bird-info-item">
+                            <h4>Класифікація: {{ bird.classification.name }}</h4>
+                        </div>
+                        <div class="bird-info-item">
+                            <h4>Вік особини: {{ bird.age}}</h4>
+                        </div>
+                        <div class="bird-info-item">
+                            <h4>Стать особини:
+                                {% if bird.gender == 'F' %}
+                                    Жіноча
+                                {% else %}
+                                    Чоловіча
+                                {% endif %}
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

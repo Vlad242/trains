@@ -1,0 +1,39 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Додавання точки маршруту{% endblock %}
+
+{% block body %}
+<div class="our-service-area bg-grey">
+    <div class="container">
+        <div class="container-header">
+            <h3 class="container-title">Додавання точки маршруту для звіту "{{ report.theme }}":</h3>
+            <hr>
+        </div>
+        <div class="container-body">
+            <h4 class="container-body-header">Карта області:</h4>
+            <div class="map-container map-default-size">
+                <img id="map-points" src="{{ asset('/uploads/map/' ~ analysis.map) }}" alt="Map">
+                <i id="center-polygon" class="fa fa-map-marker-alt"></i>
+            </div>
+        </div>
+        <hr>
+        <div class="container-body pd-btm-50">
+            <h4 class="container-body-header">Форма додавання:</h4>
+            <div class="container-form">
+                {{ form_start(form) }}
+
+                {{ form_row(form.description) }}
+                {{ form_row(form.pointX) }}
+                {{ form_row(form.pointY) }}
+
+                <button type="submit" class="btn">Додати точку</button>
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block javascript %}
+    <script src="{{ asset('js/map.js') }}"></script>
+{% endblock %}

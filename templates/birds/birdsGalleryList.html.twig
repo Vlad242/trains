@@ -1,0 +1,25 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Галерея птахів:{% endblock %}
+
+{% block body %}
+<div class="our-service-area bg-grey pd-btm-50">
+    <div class="container">
+        <div class="container-header">
+            <h3 class="container-title">Галерея птахів:</h3>
+            <hr>
+        </div>
+        <div class="container-body">
+            {% for bird in birdsGalleryList %}
+                <div class="bird-container">
+                    <div class="bird-image">
+                        <a href="{{ path('single_bird', {'bird': bird.id}) }}">
+                            <img src="{{ asset('/uploads/birds/' ~ bird.image) }}" alt="{{ bird.name }}" title="{{ bird.name }}">
+                        </a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

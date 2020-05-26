@@ -1,6 +1,14 @@
 {% extends 'base.html.twig' %}
 
 {% block header %}
+        {% for message in app.flashes('success') %}
+        <div class="alert alert-success alert-dismissible" role="alert">
+            {{ message }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        {% endfor %}
 <div class="main-wrapper">
     <div class="header-area">
         <div class="header-bottom-area header-sticky">
@@ -16,25 +24,29 @@
                                         </li>
                                         <li><a href=""><i class="fa fa-users"></i> Спільнота</a>
                                             <ul class="sub-menu">
-                                                <li><a href="#"><i class="fa fa-chevron-right" style="color: #fb7832;"></i> Актуальні дослідження</a></li>
-                                                <li><a href="{{ path('region-list') }}"><i class="fa fa-chevron-right" style="color: #fb7832;"></i> База регіонів дослідження</a></li>
+                                                <li><a href="{{ path('analysis_list') }}"><i class="fa fa-chevron-right" style="color: #fb7832;"></i> Актуальні дослідження</a></li>
+                                                <li><a href="{{ path('region_list') }}"><i class="fa fa-chevron-right" style="color: #fb7832;"></i> База регіонів дослідження</a></li>
                                             </ul>
                                         </li>
-                                        <li><a href="#"><i class="fa fa-kiwi-bird"></i> Птахи</a>
+                                        <li><a href=""><i class="fa fa-kiwi-bird"></i> Птахи</a>
                                             <ul class="sub-menu">
-                                                <li><a href="#"><i class="fa fa-chevron-right" style="color: #fb7832;"></i> Загальна база даних птахів</a></li>
+                                                <li><a href="{{ path('birds_list') }}"><i class="fa fa-chevron-right" style="color: #fb7832;"></i> Загальна база даних птахів</a></li>
+                                                {% if app.user %}
+                                                    <li><a href="{{ path('bird_add') }}"><i class="fa fa-plus" style="color: #fb7832;"></i> Додати птаха до бази</a></li>
+                                                     <li><a href="{{ path('check_population') }}"><i class="fa fa-map" style="color: #fb7832;"></i> Позначити ареал існування</a></li>
+                                                {% endif %}
                                             </ul>
                                         </li>
                                         <li>
-                                            <a href="#"><i class="fa fa-images"></i> Галерея</a>
+                                            <a href="{{ path('birds_list_gallery') }}"><i class="fa fa-images"></i> Галерея</a>
                                         </li>
                                         {% if app.user %}
                                             <li>
                                                  <a href="" class="user-edit-menu"><i class="fa fa-edit"></i> Дії користувача</a>
                                                  <ul class="sub-menu">
                                                     <li><a href="{{ path('map_builder') }}"><i class="fa fa-chevron-right" style="color: #0062cc;"></i> Нова зона досліджень</a></li>
-                                                    <li><a href="#"><i class="fa fa-chevron-right" style="color: #0062cc;"></i> База птахів (управління)</a></li>
-                                                    <li><a href="#"><i class="fa fa-chevron-right" style="color: #0062cc;"></i> Управління дослідженнями</a></li>
+                                                    <li><a href="{{ path('analysis_add') }}"><i class="fa fa-analytics" style="color: #0062cc;"></i> Створення нового аналізу</a></li>
+                                                    <li><a href="{{ path('report_add') }}"><i class="fa fa-analytics" style="color: #0062cc;"></i> Створення нового звіту</a></li>
                                                  </ul>
                                             </li>
                                         {% endif %}
@@ -54,20 +66,20 @@
                                      </ul>
                                  </nav>
                             </div>
-                              {% else %}
-                                <div class="main-menu">
-                                 <nav class="main-navigation">
-                                     <ul>
-                                         <li class="active"><a href="#"><i class="fa fa-sign-in"></i> Увійти</a>
-                                             <ul class="sub-menu">
-                                                 <li><a href="{{ path('app_login') }}"><i class="fa fa-sign-in" style="color: #fb7832;"></i> Авторизація</a></li>
-                                                 <li><a href="{{ path('app_register')}}"><i class="fa fa-registered" style="color: #fb7832;"></i> Реєстрація</a></li>
-                                              </ul>
-                                         </li>
-                                     </ul>
-                                 </nav>
-                            </div>
-                              {% endif %}
+                                {% else %}
+                                    <div class="main-menu">
+                                        <nav class="main-navigation">
+                                            <ul>
+                                                <li class="active"><a href="#"><i class="fa fa-sign-in"></i> Увійти</a>
+                                                    <ul class="sub-menu">
+                                                        <li><a href="{{ path('app_login') }}"><i class="fa fa-sign-in" style="color: #fb7832;"></i> Авторизація</a></li>
+                                                        <li><a href="{{ path('app_register')}}"><i class="fa fa-registered" style="color: #fb7832;"></i> Реєстрація</a></li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </nav>
+                                    </div>
+                                {% endif %}
                         </div>
                     </div>
                     <div class="col">
@@ -77,24 +89,25 @@
             </div>
         </div>
     </div>
-    {% endblock %}
-{% block body %}{% endblock %}
+{% endblock %}
+
+
 {% block footer %}
-    <footer class="footer-area">
+       <footer class="footer-area">
         <div class="footer-top pt--50 pb--100">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-3 col-md-4">
                         <div class="footer-info mt--60">
                             <div class="logo">
-                                <a href="#"><img src="{{ asset('images/cacadu_ico.png') }}" alt="LOGO"></a>
+                                <a href="{{ path('homepage') }}"><img src="{{ asset('images/cacadu_ico.png') }}" alt="LOGO"></a>
                             </div>
                             <p>Черкаський орнітологічний клуб імені Богдана Хмельницького.</p>
                             <ul class="social">
-                                <li><a href="#"><i class="icofont-facebook"></i></a></li>
-                                <li><a href="#"><i class="icofont-google-plus"></i></a></li>
-                                <li><a href="#"><i class="icofont-twitter"></i></a></li>
-                                <li><a href="#"><i class="icofont-pinterest"></i></a></li>
+                                <li><a href=""><i class="icofont-facebook"></i></a></li>
+                                <li><a href=""><i class="icofont-google-plus"></i></a></li>
+                                <li><a href=""><i class="icofont-twitter"></i></a></li>
+                                <li><a href=""><i class="icofont-pinterest"></i></a></li>
                             </ul>
                         </div>
                     </div>
@@ -105,10 +118,10 @@
                                 <h3>Посилання</h3>
                             </div>
                             <ul class="footer-list">
-                                <li><a href="#">Heating Repair</a></li>
-                                <li><a href="#">Plumbing Services</a></li>
-                                <li><a href="#">Air Conditioning Repair</a></li>
-                                <li><a href="#">Electrical Services</a></li>
+                                <li><a href="{{ path('homepage') }}">Домашня сторінка</a></li>
+                                <li><a href="{{ path('region_list') }}">Карта досліджень</a></li>
+                                <li><a href="{{ path('analysis_list') }}">Актульні дослідження</a></li>
+                                 <li><a href="{{ path('birds_list_gallery') }}">Галерея</a></li>
                             </ul>
                         </div>
                     </div>
