@@ -35,6 +35,11 @@ class Birds
     private $gender;
 
     /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $image;
+
+    /**
      * @ORM\ManyToOne(targetEntity="App\Entity\EcoGroup", inversedBy="birds")
      */
     private $ecoGroup;
@@ -121,6 +126,16 @@ class Birds
     public function setClassification($classification)
     {
         $this->classification = $classification;
+    }
+
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    public function setImage($image)
+    {
+        $this->image = $image;
     }
 
     public function addReport (Report $report)

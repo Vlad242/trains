@@ -28,14 +28,15 @@ class Points
     private $point_y;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Map", inversedBy="points")
+     * @ORM\Column(type="text")
      */
-    private $map;
+    private $description;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Analysis", inversedBy="points")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Report", inversedBy="points")
      */
-    private $analisys;
+    private $report;
+
 
     public function getId()
     {
@@ -66,23 +67,23 @@ class Points
         return $this;
     }
 
-    public function getMap()
+    public function getReport()
     {
-        return $this->map;
+        return $this->report;
     }
 
-    public function setMap($map)
+    public function setReport($report)
     {
-        $this->map = $map;
+        $this->report = $report;
     }
 
-    public function getAnalisys()
+    public function getDescription()
     {
-        return $this->analisys;
+        return $this->description;
     }
 
-    public function setAnalisys($analisys)
+    public function setDescription($description)
     {
-        $this->analisys = $analisys;
+        $this->description = $description;
     }
 }

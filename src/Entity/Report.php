@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\ReportRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
 
@@ -45,6 +47,17 @@ class Report
      */
     private $analysis;
 
+    /**
+     * @var Points[]| Collection
+     * @ORM\OneToMany(targetEntity="App\Entity\Points", mappedBy="report", orphanRemoval=true)
+     */
+    private $points;
+
+    public function __construct()
+    {
+        $this->points = new ArrayCollection();
+    }
+
     public function getId()
     {
         return $this->id;
@@ -67,7 +80,7 @@ class Report
         return $this->document;
     }
 
-    public function setDocument(string $document)
+    public function setDocument($document)
     {
         $this->document = $document;
 
@@ -79,7 +92,7 @@ class Report
         return $this->description;
     }
 
-    public function setDescription(string $description)
+    public function setDescription($description)
     {
         $this->description = $description;
 
@@ -104,5 +117,18 @@ class Report
     public function setAnalysis($analysis)
     {
         $this->analysis = $analysis;
+    }
+
+    public function addPoint(Points $points)
+    {
+        $this->points[] = $points;
+        $points->setReport($this);
+        return $this;
+    }
+
+    public function removePoint (Points $points)
+    {
+        $this->points->removeElement($points);
+        $points->setReport(null);
     }
 }

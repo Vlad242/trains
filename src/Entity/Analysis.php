@@ -28,6 +28,21 @@ class Analysis
     private $theme;
 
     /**
+     * @ORM\Column(type="text")
+     */
+    private $description;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $image;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $map;
+
+    /**
      * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="analysis")
      */
     private $user;
@@ -38,16 +53,9 @@ class Analysis
      */
     private $reports;
 
-    /**
-     * @var Points[]| Collection
-     * @ORM\OneToMany(targetEntity="App\Entity\Points", mappedBy="analisys", orphanRemoval=true)
-     */
-    private $points;
-
     public function __construct()
     {
         $this->reports = new ArrayCollection();
-        $this->points = new ArrayCollection();
     }
 
     public function getId()
@@ -77,6 +85,36 @@ class Analysis
         $this->user = $user;
     }
 
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    public function setImage($image)
+    {
+        $this->image = $image;
+    }
+
+    public function getMap()
+    {
+        return $this->map;
+    }
+
+    public function setMap($map)
+    {
+        $this->map = $map;
+    }
+
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    public function setDescription($description)
+    {
+        $this->description = $description;
+    }
+
     public function addReport(Report $report)
     {
         $this->reports[] = $report;
@@ -88,18 +126,5 @@ class Analysis
     {
         $this->reports->removeElement($report);
         $report->setAnalysis(null);
-    }
-
-    public function addPoint(Points $points)
-    {
-        $this->points[] = $points;
-        $points->setAnalisys($this);
-        return $this;
-    }
-
-    public function removePoint (Points $points)
-    {
-        $this->points->removeElement($points);
-        $points->setAnalisys(null);
     }
 }
