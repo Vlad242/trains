@@ -3514,7 +3514,7 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
 }
 .footer-info .footer-title h3 {
   font-size: 26px;
-  color: #ffffff;
+  color: #fb7832;
   text-transform: uppercase;
   text-decoration: underline;
   font-weight: 600;
@@ -3678,7 +3678,7 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
 .footer-bottom-two .footer-bottom-social ul li {
   display: inline-block;
   margin-left: 55px;
-  color: #ffffff;
+  color: #fb7832;
 }
 .footer-bottom-two .footer-bottom-social ul li:first-child {
   margin-left: 0;
@@ -3881,6 +3881,10 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
   width: 75%;
   display: inline-flex
 }
+.container-body .container-form form div > select{
+  width: 30%;
+  display: inline-flex
+}
 .container-body .container-form button[type=submit] {
   margin: 0;
   position: absolute;
@@ -3903,4 +3907,106 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
 }
 .block-with-checkbox {
   margin: 20px;
+}
+.pd-btm-50{
+  padding-bottom: 50px;
+}
+
+.bird-container {
+  display: inline-block;
+  max-width: 350px;
+  padding: 5px;
+  margin-right: 10px;
+  margin-bottom: 20px;
+  border: 1px solid darkgray;
+  border-radius: 5px;
+  height: auto;
+}
+.bird-image {
+  max-width: 350px;
+  height: auto;
+}
+.bird-image img {
+  border-radius: 5px;
+}
+.bird-data {
+  padding: 10px;
+  margin: 5px;
+}
+.bird-container .bird-data .bird-title h3 {
+  color: #0062cc;
+  text-align: center;
+}
+
+.bird-container-lg {
+  width: 1225px;
+  padding: 10px;
+  border: 1px solid darkgray;
+  border-radius: 10px;
+}
+.bird-image-lg {
+  width: 100%;
+  height: auto;
+}
+.bird-image-lg img {
+  border-radius: 10px;
+}
+.bird-data-lg {
+  padding: 15px;
+  margin: 10px;
+}
+.bird-container-lg .bird-data-lg .bird-title-lg h3 {
+  color: #0062cc;
+  text-align: center;
+}
+#center-polygon-alt {
+  display: block;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 5px;
+  border-radius: 10px;
+}
+.analysis-map {
+  position: relative;
+  max-width: 500px;
+}
+.report-title {
+  padding: 15px 0;
+}
+.report-container {
+  position: relative;
+  padding: 10px;
+  margin: 10px;
+  border: 1px solid darkgray;
+  border-radius: 10px;
+}
+.report-container > h4, .report-container > a {
+  color: #FF8C0B;
+}
+.report-container small {
+  float: right;
+}
+.card-body small {
+  float: right;
+}
+.container-header {
+  position: relative;
+}
+.absolute-right-top {
+  color: #FFFFFF!important;
+  margin: 0;
+  padding: 5px;
+  border-radius: 10px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+.card {
+  margin-bottom: 10px;
+}
+.map-default-size {
+  width: 100%;
+  height: auto;
+}
+.map-point {
+  font-size: 36px;
 }

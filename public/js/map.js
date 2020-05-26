@@ -9,6 +9,30 @@
         $("#active-polygon").attr("points", '');
     });
 
+    $('#coordinate-svg-for-bird').click(function (e) {
+        var pointX = e.pageX - $(this).offset().left,
+            pointY = e.pageY - $(this).offset().top;
+
+        $("#center-polygon").css('display', 'block');
+        $("#center-polygon").css('top', (pointY - 38));
+        $("#center-polygon").css('left', (pointX - 13));
+
+        $("#region_bird_new_form_pointX").val(Math.round(pointX - 83));
+        $("#region_bird_new_form_pointY").val(Math.round(pointY - 38));
+    });
+
+    $('#map-points').click(function (e) {
+        var pointX = e.pageX - $(this).offset().left,
+            pointY = e.pageY - $(this).offset().top;
+
+        $("#center-polygon").css('display', 'block');
+        $("#center-polygon").css('top', (pointY - 38));
+        $("#center-polygon").css('left', (pointX - 13));
+
+        $("#point_new_form_pointX").val(Math.round(pointX));
+        $("#point_new_form_pointY").val(Math.round(pointY));
+    });
+
     $('#coordinate-svg').click(function (e) {
         var pointX = e.pageX - $(this).offset().left,
             pointY = e.pageY - $(this).offset().top;
@@ -32,8 +56,8 @@
                 $("#center-polygon").css('top', (pointY - 38));
                 $("#center-polygon").css('left', (pointX - 13));
 
-                $("#region_map_new_form_pointX").val(Math.round(pointY - 38));
-                $("#region_map_new_form_pointY").val(Math.round(pointX - 83));
+                $("#region_map_new_form_pointX").val(Math.round(pointX - 38));
+                $("#region_map_new_form_pointY").val(Math.round(pointY - 83));
             }
         }
 
