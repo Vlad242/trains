@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\Entity\Analysis;
+use App\Entity\Birds;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
@@ -20,8 +22,15 @@ class DefaultController extends AbstractController
      */
     public function index()
     {
+        $em = $this->getDoctrine()->getManager();
+        $birds = $em->getRepository(Birds::class)->findLastSixBirdsField();
+        $birdsGallery = $em->getRepository(Birds::class)->findForGalleryIndexField();
+        $analysis = $em->getRepository(Analysis::class)->findLastTen();
+
         return $this->render('default/index.html.twig', [
-            'controller_name' => 'DefaultController',
+            'birds' => $birds,
+            'birdsGallery' => $birdsGallery,
+            'analysis' => $analysis
         ]);
     }
 
@@ -30,11 +39,13 @@ class DefaultController extends AbstractController
      */
     public function userPanel()
     {
-        $this->session->set('attribute-name', 'attribute-value');
+        $em = $this->getDoctrine()->getManager();
+        $analysis = $em->getRepository(Analysis::class)->findBy([
+            'user' => $this->getUser()->getId()
+        ]);
 
-        $foo = $this->session->get('foo');
-
-        $filters = $this->session->get('filters', []);
-        return $this->render('default/userPanel.html.twig');
+        return $this->render('default/userPanel.html.twig', [
+            'analysis' => $analysis
+        ]);
     }
 }

@@ -68,7 +68,7 @@ class RegionController extends AbstractController
     }
 
     /**
-     * @Route("/region-list", name="region-list")
+     * @Route("/region-list", name="region_list")
      * @return Response
      */
     public function regionList()
