@@ -49,3 +49,19 @@ services:
     App\Service\BirdImageRemover:
         arguments:
             $targetDirectory: '%kernel.project_dir%/public/uploads/birds'
+
+    App\Service\AnalysisImageUploader:
+        arguments:
+            $targetDirectory: '%kernel.project_dir%/public/uploads/analysis'
+
+    App\Service\AnalysisImageRemover:
+        arguments:
+            $targetDirectory: '%kernel.project_dir%/public/uploads/analysis'
+
+    App\Service\ReportDocUploader:
+        arguments:
+            $targetDirectory: '%kernel.project_dir%/public/uploads/reports'
+
+    App\Service\ReportDocRemover:
+        arguments:
+            $targetDirectory: '%kernel.project_dir%/public/uploads/reports'
