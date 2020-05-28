@@ -53,9 +53,16 @@ class Analysis
      */
     private $reports;
 
+    /**
+     * @var Comments[]| Collection
+     * @ORM\OneToMany(targetEntity="App\Entity\Comments", mappedBy="analysis", orphanRemoval=true)
+     */
+    private $comments;
+
     public function __construct()
     {
         $this->reports = new ArrayCollection();
+        $this->comments = new ArrayCollection();
     }
 
     public function getId()
@@ -126,5 +133,18 @@ class Analysis
     {
         $this->reports->removeElement($report);
         $report->setAnalysis(null);
+    }
+
+    public function addComment(Comments $comments)
+    {
+        $this->comments[] = $comments;
+        $comments->setAnalysis($this);
+        return $this;
+    }
+
+    public function removeComment (Comments $comments)
+    {
+        $this->comments->removeElement($comments);
+        $comments->setAnalysis(null);
     }
 }

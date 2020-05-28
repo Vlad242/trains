@@ -30,6 +30,11 @@ class Comments
      */
     private $user;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Analysis", inversedBy="comments")
+     */
+    private $analysis;
+
     public function getId()
     {
         return $this->id;
@@ -55,5 +60,15 @@ class Comments
     public function setUser($user)
     {
         $this->user = $user;
+    }
+
+    public function getAnalysis()
+    {
+        return $this->analysis;
+    }
+
+    public function setAnalysis($analysis)
+    {
+        $this->analysis = $analysis;
     }
 }

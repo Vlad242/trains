@@ -27,16 +27,6 @@ class Birds
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $age;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $gender;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
     private $image;
 
     /**
@@ -80,30 +70,6 @@ class Birds
     public function setName(string $name)
     {
         $this->name = $name;
-
-        return $this;
-    }
-
-    public function getAge()
-    {
-        return $this->age;
-    }
-
-    public function setAge(string $age)
-    {
-        $this->age = $age;
-
-        return $this;
-    }
-
-    public function getGender()
-    {
-        return $this->gender;
-    }
-
-    public function setGender(string $gender)
-    {
-        $this->gender = $gender;
 
         return $this;
     }
