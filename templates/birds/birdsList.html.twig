@@ -26,19 +26,6 @@
                         <div class="bird-info-item">
                             <h4><b>Класифікація:</b> {{ bird.classification.name }}</h4>
                         </div>
-                        <div class="bird-info-item">
-                            <h4><b>Вік особини:</b> {{ bird.age}}</h4>
-                        </div>
-                        <div class="bird-info-item">
-                            <h4>
-                                <b>Стать особини:</b>
-                                {% if bird.gender == 'F' %}
-                                    Жіноча особина
-                                {% else %}
-                                    Чоловіча особина
-                                {% endif %}
-                            </h4>
-                        </div>
                     </div>
                 </div>
             {% endfor %}

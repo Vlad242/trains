@@ -44,7 +44,7 @@
                                 <p><b>Опис дослідження:</b> {{ analys.description }}</p>
                                 <i style="float: left; color: #FF8C0B;"><i class="fa fa-calendar" ></i> {{ analys.createdAt |date('y:m:d') }}</i>
                                 <i style="float: right; color: #FF8C0B;"><i class="fa fa-user-alt"></i> {{ analys.user.username }}</i>
-                                <a class="default-btn mt--20" {{ path('single_analysis', {'analysis': analys.id}) }}">Детальніше</a>
+                                <a class="default-btn mt--20" href="{{ path('single_analysis', {'analysis': analys.id}) }}">Детальніше</a>
                             </div>
                         </div>
                     </div>
@@ -59,7 +59,7 @@
                     <div class="col-lg-6 col-md-6">
                         <div class="repair-service-inner">
                             <h3>Характеристика районів дослідження</h3>
-                            <h2>Черккська область</h2>
+                            <h2>Черкаська область</h2>
                             <p>Наша команда займається орнітологічними дослідженнями вже близько 20 років. Ареал дослідження - наш рідний край, Черкаська область.</p>
                             <div class="make-apoinment-button">
                                 <a href="{{ path('region_list') }}" class="default-btn border-radius">Детальніше про райони дослідження</a>
@@ -207,7 +207,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="something-new-inner text-center text-white">
-                            <h2>Приєднуйтесь до нашої спільнноти</h2>
+                            <h2>Приєднуйтесь до нашої спільноти</h2>
                             <p>Якщо орнітологія - це твоя професія чи хоббі приєднуйся щоб разом дослідити різноманітну орнітофауну нашого краю!</p>
                             <div class="contact-us-button">
                                 <a href="{{ path('app_register') }}" class="default-btn border-radius">Реєстрація</a>

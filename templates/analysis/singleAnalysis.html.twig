@@ -76,6 +76,35 @@
                 </div>
             </div>
         </div>
+        <div class="container">
+            <div class="container-comment">
+                <h2>Коментарі:</h2>
+                {% for comment in comments %}
+                    <div class="container-item">
+                        <h4><i class="fa fa-user-secret"></i> {{ comment.user.username }}</h4>
+                        <hr>
+                        <p>{{ comment.comment }}</p>
+                        <small>Створено: <span class="fa fa-calendar"></span> {{ comment.createdAt | date('y-m-d')}}</small>
+                    </div>
+                {% endfor %}
+            </div>
+            {% if app.user %}
+                <div class="container-body">
+                    <h2>Прокоментуйте дослідження:</h2>
+                    <hr>
+                    <div class="container-form">
+                        {{ form_start(form) }}
+
+                        {{ form_row(form.comment) }}
+
+                        <button type="submit" class="btn">Додати коментар</button>
+                        {{ form_end(form) }}
+                    </div>
+                </div>
+            {% else %}
+                <h3>Для коментування досліджень потрібно <a href="{{ path('app_login') }}" style="color: #FF8C0B;">авторизуватись.</a>.</h3>
+            {% endif %}
+        </div>
     </div>
 {% endblock %}
 

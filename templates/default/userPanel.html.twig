@@ -10,21 +10,25 @@
                 <hr>
             </div>
             <div class="container-body">
-                {% for analys in analysis %}
-                    <div class="bird-container">
-                        <div class="bird-image">
-                            <img src="{{ asset('/uploads/analysis/' ~ analys.image) }}" alt="">
-                        </div>
-                        <div class="bird-data">
-                            <div class="bird-title">
-                                <h3><a href="{{ path('single_analysis', {'analysis': analys.id}) }}">{{ analys.theme }}</a></h3>
+                {% if analysis is empty %}
+                    <h3>Ви не опублікували жодного дослідження. Натисніть <a href="{{ path('analysis_add') }}" style="color: #FF8C0B;">додати</a> щоб додати нове дослідження.</h3>
+                {% else %}
+                    {% for analys in analysis %}
+                        <div class="bird-container">
+                            <div class="bird-image">
+                                <img src="{{ asset('/uploads/analysis/' ~ analys.image) }}" alt="">
                             </div>
-                            <hr>
-                            <p>{{ analys.description | slice(0, 50) }} ...</p>
-                            <a href="{{ path('single_analysis', {'analysis': analys.id}) }}">Детальніше</a>
+                            <div class="bird-data">
+                                <div class="bird-title">
+                                    <h3><a href="{{ path('single_analysis', {'analysis': analys.id}) }}">{{ analys.theme }}</a></h3>
+                                </div>
+                                <hr>
+                                <p>{{ analys.description | slice(0, 50) }} ...</p>
+                                <a href="{{ path('single_analysis', {'analysis': analys.id}) }}">Детальніше</a>
+                            </div>
                         </div>
-                    </div>
-                {% endfor %}
+                    {% endfor %}
+                {% endif %}
             </div>
         </div>
     </div>

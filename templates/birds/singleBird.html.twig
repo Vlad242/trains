@@ -28,19 +28,6 @@
                             <h4><b>Класифікація:</b> {{ bird.classification.name }} (<b>Характеристика класу:</b> {{ bird.classification.characteristic }})</h4>
                         </div>
                         <div class="bird-info-item-lg">
-                            <h4><b>Вік особини:</b>Вік особини: {{ bird.age}}</h4>
-                        </div>
-                        <div class="bird-info-item-lg">
-                            <h4>
-                                <b>Стать особини:</b>
-                                {% if bird.gender == 'F' %}
-                                    Жіноча особина
-                                {% else %}
-                                    Чоловіча особина
-                                {% endif %}
-                            </h4>
-                        </div>
-                        <div class="bird-info-item-lg">
                             <h4><b>Кількість зон популяції:</b> {{ populationPoints|length }}</h4>
                         </div>
                         <div class="bird-info-item-lg">
