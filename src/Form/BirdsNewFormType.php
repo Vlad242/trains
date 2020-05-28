@@ -36,18 +36,6 @@ class BirdsNewFormType extends AbstractType
                 'label' => 'Назва:',
                 'required' => true
             ])
-            ->add('age', NumberType::class,[
-                'label' => 'Вік:',
-                'required' => true
-            ])
-            ->add('gender', ChoiceType::class, [
-                'choices'  => [
-                    'Male' => 'M',
-                    'Famale' => 'F'
-                ],
-                'label' => 'Стать:',
-                'required' => true
-            ])
             ->add('image', FileType::class, [
                 'label' => 'Файл зображення:',
                 'required' => true

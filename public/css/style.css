@@ -3968,7 +3968,7 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
 }
 .analysis-map {
   position: relative;
-  max-width: 500px;
+  max-width: 1225px;
 }
 .report-title {
   padding: 15px 0;
@@ -4033,4 +4033,36 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
 }
 .container-body-static img {
   padding: 20px;
+}
+.container-comment {
+  margin-left: 20px;
+  text-align: left;
+  border: 1px solid darkgray;
+  border-radius: 10px;
+  padding: 20px;
+  width: 1225px;
+}
+.container-comment h2 {
+  color: #FF8C0B;
+}
+.container-comment .container-item {
+  border: 1px solid darkgray;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 10px;
+}
+.container-comment .container-item h4{
+  font-weight: bold;
+}
+.container-comment .container-item hr {
+  padding: 0;
+  margin: 0;
+}
+.container-comment .container-item p{
+  padding: 5px;
+}
+.container-comment .container-item small{
+  color: #FF8C0B;
+  float: right;
+  margin-top: -10px;
 }
