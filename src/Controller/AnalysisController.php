@@ -3,9 +3,11 @@
 namespace App\Controller;
 
 use App\Entity\Analysis;
+use App\Entity\Comments;
 use App\Entity\Points;
 use App\Entity\Report;
 use App\Form\AnalysisNewFormType;
+use App\Form\CommentNewFormType;
 use App\Service\AnalysisImageUploader;
 use App\Service\MapImageUploader;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
@@ -65,6 +67,7 @@ class AnalysisController extends AbstractController
             ->findBy([
                 'id' => $analysis,
             ]);
+
         $reports = $em->getRepository(Report::class)
             ->findBy([
                 'analysis' => $analysis,
@@ -75,10 +78,19 @@ class AnalysisController extends AbstractController
                 'report' => $reports,
             ]);
 
+        $comments = $em->getRepository(Comments::class)
+            ->findBy([
+                'analysis' => $analysis->getId()
+            ]);
+
+        $form = $this->createForm(CommentNewFormType::class, null, ['action' => $this->generateUrl('new_comment', ['analysis' => $analysis->getId()])]);
+
         return $this->render('analysis/singleAnalysis.html.twig',[
             'analys' => $analys[0],
             'reports' => $reports,
-            'points' => $points
+            'points' => $points,
+            'comments' => $comments,
+            'form'=> $form->createView()
         ]);
     }
 
@@ -90,7 +102,6 @@ class AnalysisController extends AbstractController
     {
         $em = $this->getDoctrine()->getManager();
         $analysis = $em->getRepository(Analysis::class)->findAll();
-
 
         return $this->render('analysis/AnalysisList.html.twig',[
             'analysis' => $analysis
