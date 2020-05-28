@@ -48,4 +48,36 @@ class DefaultController extends AbstractController
             'analysis' => $analysis
         ]);
     }
+
+    /**
+     * @Route("/roaded", name="roaded")
+     */
+    public function roaded()
+    {
+        return $this->render('static/roaded.html.twig');
+    }
+
+    /**
+     * @Route("/cartographic", name="cartographic")
+     */
+    public function cartographic()
+    {
+        return $this->render('static/cartographic.html.twig');
+    }
+
+    /**
+     * @Route("/combined", name="combined")
+     */
+    public function combined()
+    {
+        return $this->render('static/combined.html.twig');
+    }
+
+    /**
+     * @Route("/pointed", name="pointed")
+     */
+    public function pointed()
+    {
+        return $this->render('static/pointed.html.twig');
+    }
 }

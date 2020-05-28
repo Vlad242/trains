@@ -8,7 +8,7 @@
         <div class="container-header">
             <h3 class="container-title">Додавання нового регіону:</h3>
             <p class="container-description">
-                Слідуйте інструкції по коректному заповненню форми, в тому числі  <b>виділення області</b> на карті та <b>точок базування</b>!
+                Слідуйте інструкції по коректному заповненню форми, в тому числі  <b>виділення області</b> на карті та <b>точок базування</b>, для перегляду інформації про вже існуючі зони виділіть флажком опцію <b>НАТИСНУТИ ДЛЯ ВІЛЬНОГО ПЕРЕГЛЯДУ БЕЗ ВИДІЛЕННЯ ЗОНИ!</b>!
             </p>
             <hr>
         </div>
@@ -19,14 +19,13 @@
             </p>
             <ol>
                 <li>Методом точкового виділення виділити область</li>
-                <li>Увімкнути флажок встановлення координат</li>
-                <li>Встановити координати</li>
+                <li>Увімкнути флажок встановлення координат - встановити ценр зони</li>
                 <li>Заповнити відповідні поля форми</li>
                 <li>Натиснути кнопку "Додати регіон"</li>
             </ol>
             <div class="block-with-checkbox">
                 <input type="checkbox" id="checkbox-for-map-point">
-                <label for="checkbox-for-map-point"> НАТИСНУТИ ДЛЯ ВСТАНОВЛЕННЯ ЦЕНТРУ ЗОНИ(ПОТРІБНО ДЛЯ ПОЗИЦІОНУВАННЯ ІНФОРМАЦІЙНОЇ ТАБЛИЦІ)!</label><br>
+                <label for="checkbox-for-map-point"> НАТИСНУТИ ДЛЯ ВСТАНОВЛЕННЯ ЦЕНТРУ ЗОНИ</label><br>
 
                 <input type="checkbox" id="checkbox-for-free">
                 <label for="checkbox-for-free"> НАТИСНУТИ ДЛЯ ВІЛЬНОГО ПЕРЕГЛЯДУ БЕЗ ВИДІЛЕННЯ ЗОНИ!</label><br>
@@ -74,7 +73,7 @@
             </div>
         </div>
         <hr>
-        <div class="container-body">
+        <div class="container-body pd-btm-50">
             <h4 class="container-body-header">Форма додавання:</h4>
             <div class="container-form">
                 {{ form_start(form) }}

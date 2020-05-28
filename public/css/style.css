@@ -922,9 +922,10 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
     - Button Style
 ------------------------------------------*/
 .default-btn {
+  border-radius: 10px;
   border: 1px solid #fb7832;
   padding: 12px 30px;
-  color: #ffffff;
+  color: #ffffff!important;
   background: #fb7832;
   font-size: 16px;
   font-weight: 600;
@@ -4009,4 +4010,27 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
 }
 .map-point {
   font-size: 36px;
+}
+.container-body-static {
+  position: relative;
+}
+.container-body-static h2 {
+  padding: 10px;
+  text-align: center;
+}
+.container-body-static h4 {
+  padding: 20px;
+  text-indent: 50px;
+  text-align: center;
+  font-weight: bold;
+}
+.container-body-static p {
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+}
+.container-body-static p:first-line {
+  text-indent: 30px;
+}
+.container-body-static img {
+  padding: 20px;
 }

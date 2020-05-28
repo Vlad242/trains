@@ -6,7 +6,7 @@
 <div class="our-service-area bg-grey pd-btm-50">
     <div class="container">
         <div class="container-header">
-            <h3 class="container-title">Додавання нового птаха до бази даних:</h3>
+            <h3 class="container-title">База даних птахів:</h3>
             <hr>
         </div>
         <div class="container-body">
@@ -21,20 +21,21 @@
                         </div>
                         <hr>
                         <div class="bird-info-item">
-                            <h4>Еко група: {{ bird.ecoGroup.name }}</h4>
+                            <h4><b>Екологічна група:</b> {{ bird.ecoGroup.name }}</h4>
                         </div>
                         <div class="bird-info-item">
-                            <h4>Класифікація: {{ bird.classification.name }}</h4>
+                            <h4><b>Класифікація:</b> {{ bird.classification.name }}</h4>
                         </div>
                         <div class="bird-info-item">
-                            <h4>Вік особини: {{ bird.age}}</h4>
+                            <h4><b>Вік особини:</b> {{ bird.age}}</h4>
                         </div>
                         <div class="bird-info-item">
-                            <h4>Стать особини:
+                            <h4>
+                                <b>Стать особини:</b>
                                 {% if bird.gender == 'F' %}
-                                    Жіноча
+                                    Жіноча особина
                                 {% else %}
-                                    Чоловіча
+                                    Чоловіча особина
                                 {% endif %}
                             </h4>
                         </div>
