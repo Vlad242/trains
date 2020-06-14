@@ -1,0 +1,27 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Бронювання квитка{% endblock %}
+
+{% block body %}
+    <div class="our-service-area bg-grey pd-btm-50">
+        <div class="container">
+            <div class="container-header">
+                <h3 class="container-title">Бронювання квитка:</h3>
+                <hr>
+            </div>
+            <div class="container-body">
+                <div class="container-form">
+                    {{ form_start(form) }}
+
+                    {{ form_row(form.schedule) }}
+                    {{ form_row(form.price) }}
+                    {{ form_row(form.type) }}
+                    {{ form_row(form.description) }}
+
+                    <button type="submit" class="btn">Додати квиток</button>
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

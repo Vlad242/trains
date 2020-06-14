@@ -14,31 +14,14 @@
                                         <li class="active">
                                             <a href="{{ path('homepage') }}"><i class="fa fa-home"></i> Головна</a>
                                         </li>
-                                        <li><a href=""><i class="fa fa-users"></i> Спільнота</a>
-                                            <ul class="sub-menu">
-                                                <li><a href="{{ path('analysis_list') }}"><i class="fab fa-searchengin" style="color: #fb7832;"></i> Актуальні дослідження</a></li>
-                                                <li><a href="{{ path('region_list') }}"><i class="fa fa-map-marked-alt" style="color: #fb7832;"></i> База регіонів дослідження</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href=""><i class="fa fa-kiwi-bird"></i> Птахи</a>
-                                            <ul class="sub-menu">
-                                                <li><a href="{{ path('birds_list') }}"><i class="fa fa-list" style="color: #fb7832;"></i> Загальна база даних птахів</a></li>
-                                                {% if app.user %}
-                                                    <li><a href="{{ path('bird_add') }}"><i class="fa fa-plus" style="color: #0062cc;"></i> Додати птаха до бази</a></li>
-                                                    <li><a href="{{ path('check_population') }}"><i class="fa fa-map-marked-alt" style="color: #0062cc;"></i> Позначити ареал існування</a></li>
-                                                {% endif %}
-                                            </ul>
-                                        </li>
-                                        <li>
-                                            <a href="{{ path('birds_list_gallery') }}"><i class="fa fa-images"></i> Галерея</a>
+                                         <li>
+                                            <a href="{{ path('schedule') }}"><i class="fa fa-list-alt"></i> Розклад руху</a>
                                         </li>
                                         {% if app.user %}
                                             <li>
-                                                 <a href="" class="user-edit-menu"><i class="fa fa-edit"></i> Дії користувача</a>
+                                                 <a href="" class="user-edit-menu"><i class="fa fa-user"></i> Дії користувача</a>
                                                  <ul class="sub-menu">
-                                                    <li><a href="{{ path('map_builder') }}"><i class="fa fa-plus" style="color: #0062cc;"></i> Нова зона досліджень</a></li>
-                                                    <li><a href="{{ path('analysis_add') }}"><i class="fa fa-analytics" style="color: #0062cc;"></i> Створення нового аналізу</a></li>
-                                                    <li><a href="{{ path('report_add') }}"><i class="fa fa-file-medical" style="color: #0062cc;"></i> Створення нового звіту</a></li>
+                                                    <li><a href="{{ path('ticket_new')}}"><i class="fa fa-ticket" style="color: #0062cc;"></i> Бронювання квитків</a></li>
                                                  </ul>
                                             </li>
                                         {% endif %}
@@ -91,10 +74,7 @@
                 <div class="row">
                     <div class="col-lg-3 col-md-4">
                         <div class="footer-info mt--60">
-                            <div class="logo">
-                                <a href="{{ path('homepage') }}"><img src="{{ asset('images/cacadu_ico.png') }}" alt="LOGO"></a>
-                            </div>
-                            <p>Черкаський орнітологічний клуб імені Богдана Хмельницького.</p>
+                            <p>Черкаський залізничний вокзал імені Богдана Хмельницького.</p>
                             <ul class="social">
                                 <li><a href=""><i class="icofont-facebook"></i></a></li>
                                 <li><a href=""><i class="icofont-google-plus"></i></a></li>
@@ -111,9 +91,8 @@
                             </div>
                             <ul class="footer-list">
                                 <li><a href="{{ path('homepage') }}">Домашня сторінка</a></li>
-                                <li><a href="{{ path('region_list') }}">Карта досліджень</a></li>
-                                <li><a href="{{ path('analysis_list') }}">Актульні дослідження</a></li>
-                                 <li><a href="{{ path('birds_list_gallery') }}">Галерея</a></li>
+                                <li><a href="{{ path('schedule') }}">Розклад руху</a></li>
+                                <li><a href="{{ path('ticket_new') }}">Бронювання квитків</a></li>
                             </ul>
                         </div>
                     </div>
@@ -123,10 +102,10 @@
                                 <h3>Контакти</h3>
                             </div>
                             <ul class="footer-list">
-                                <li>18031, м. Черкаси, б-р Шевченка, 81</li>
-                                <li><a href="#"><i class="fa fa-mail-bulk"></i> cic@cdu.edu.ua</a></li>
-                                <li><a href="#"><i class="fa fa-phone-alt"></i>  (0472) 35-44-63</a></li>
-                                <li><a href="https://cdu.edu.ua/"><i class="fa fa-link"></i> https://cdu.edu.ua/</a></li>
+                                <li>Черкаси, Черкаська область, 18000</li>
+                                <li><a href="#"><i class="fa fa-mail-bulk"></i> trains_test@cdu.edu.ua</a></li>
+                                <li><a href="#"><i class="fa fa-phone-alt"></i>  (0472) 14-14-144</a></li>
+                                <li><a href="#"><i class="fa fa-link"></i> C2GX+9X Черкаси, Черкаська область</a></li>
                             </ul>
                         </div>
                     </div>

@@ -5,7 +5,6 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
@@ -42,20 +41,14 @@ class User implements UserInterface
     private $password;
 
     /**
-     * @var Analysis[]| Collection
-     * @ORM\OneToMany(targetEntity="App\Entity\Analysis", mappedBy="user", orphanRemoval=true)
+     * @var Ticket[]| Collection
+     * @ORM\OneToMany(targetEntity="App\Entity\Ticket", mappedBy="user", orphanRemoval=true)
      */
-    private $analysis;
-
-    /**
-     * @var Comments[]| Collection
-     * @ORM\OneToMany(targetEntity="App\Entity\Comments", mappedBy="user", orphanRemoval=true)
-     */
-    private $comments;
+    private $tickets;
 
     public function __construct()
     {
-        $this->comments = new ArrayCollection();
+        $this->tickets = new ArrayCollection();
     }
 
     public function getId()
@@ -120,29 +113,16 @@ class User implements UserInterface
     {
     }
 
-    public function addAnalysis(Analysis $analysis)
+    public function addTicket (Ticket $ticket)
     {
-        $this->analysis[] = $analysis;
-        $analysis->setUser($this);
+        $this->tickets[] = $ticket;
+        $ticket->setUser($this);
         return $this;
     }
 
-    public function removeAnalysis (Analysis $analysis)
+    public function removeTicket (Ticket $ticket)
     {
-        $this->analysis->removeElement($analysis);
-        $analysis->setUser(null);
-    }
-
-    public function addComments (Comments $comments)
-    {
-        $this->comments[] = $comments;
-        $comments->setUser($this);
-        return $this;
-    }
-
-    public function removeComments (Comments $comments)
-    {
-        $this->comments->removeElement($comments);
-        $comments->setUser(null);
+        $this->tickets->removeElement($ticket);
+        $ticket->setUser(null);
     }
 }

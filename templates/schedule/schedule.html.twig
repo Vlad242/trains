@@ -1,0 +1,42 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Розклад{% endblock %}
+
+{% block body %}
+       <div class="our-service-area bg-grey section-pt section-pb-80">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="section-title">
+                            <h1>РОЗКЛАД РУХУ ПОТЯГІВ</h1>
+                            <h4>Розклад руху потягів станом на Червень 2020 року</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-12 col-md-12">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th scope="col">Номер рейсу</th>
+                            <th scope="col">Номер потягу</th>
+                            <th scope="col">Локація відправлення</th>
+                            <th scope="col">Локація прибуття</th>
+                            <th scope="col">Дата відправлення</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for schedule in scheduleList %}
+                            <tr>
+                                <th scope="row">{{ schedule.id }}</th>
+                                <td>{{ schedule.train.name }}</td>
+                                <td>{{ schedule.getLocationFrom().name }}</td>
+                                <td>{{ schedule.getLocationTo().name }}</td>
+                                <td>{{ schedule.movedate | date('d-m-Y m:s') }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+{% endblock %}

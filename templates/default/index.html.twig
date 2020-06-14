@@ -4,15 +4,15 @@
 
 {% block body %}
         <div class="hero-slider hero-slider-1">
-            <div class="single-slide overly-bg-black" style="background-image: url({{ asset('images/slider/Slider4.jpg') }})">
+            <div class="single-slide overly-bg-black" style="background-image: url({{ asset('images/bg1.jpg') }})">
                 <div class="hero-content-one container">
                     <div class="row">
                         <div class="col-lg-12 ">
                             <div class="slider-text-info">
-                                <h1>Публікуй тут <br> найактуальніші дослідження в сфері орнітології</h1>
-                                <p>Будь частиною нашої команди, опиши свої дослідження!</p>
+                                <h1>Залізничний вокзал імені Богдана Хмельницького</h1>
+                                <p>Актуальна інформація про розклад руху потягів</p>
                                 <div class="slider-button">
-                                    <a href="{{ path('analysis_list') }}" class="default-btn border-radius">Переглянути дослідження</a>
+                                    <a href="{{ path('schedule') }}" class="default-btn border-radius">Перейти до розкладу</a>
                                 </div>
                             </div>
                         </div>
@@ -26,29 +26,37 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="section-title">
-                            <h1>ОСТАННІ ПУБЛІКАЦІЇ</h1>
-                            <h4>Загальні орнітологічні дослідження учасників нашої команди</h4>
+                            <h1>РОЗКЛАД РУХУ ПОТЯГІВ</h1>
+                            <h4>Розклад руху потягів станом на Червень 2020 року</h4>
                         </div>
                     </div>
                 </div>
-                <div class="row service-slider-active">
-                    {% for analys in analysis %}
-                    <div class="col-lg-4 col-md-6">
-                        <div class="single-service mt--30 mb--30">
-                            <div class="service-image">
-                                <img src="{{ asset('/uploads/analysis/' ~ analys.image) }}" alt="">
-                            </div>
-                            <div class="service-content text-center">
-                                <h3><a href="{{ path('single_analysis', {'analysis': analys.id}) }}">{{ analys.theme }}</a></h3>
-                                <hr>
-                                <p><b>Опис дослідження:</b> {{ analys.description }}</p>
-                                <i style="float: left; color: #FF8C0B;"><i class="fa fa-calendar" ></i> {{ analys.createdAt |date('y:m:d') }}</i>
-                                <i style="float: right; color: #FF8C0B;"><i class="fa fa-user-alt"></i> {{ analys.user.username }}</i>
-                                <a class="default-btn mt--20" href="{{ path('single_analysis', {'analysis': analys.id}) }}">Детальніше</a>
-                            </div>
-                        </div>
+                <div class="col-lg-12 col-md-12">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th scope="col">Номер рейсу</th>
+                            <th scope="col">Номер потягу</th>
+                            <th scope="col">Локація відправлення</th>
+                            <th scope="col">Локація прибуття</th>
+                            <th scope="col">Дата відправлення</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for schedule in scheduleList %}
+                            <tr>
+                                <th scope="row">{{ schedule.id }}</th>
+                                <td>{{ schedule.train.name }}</td>
+                                <td>{{ schedule.getLocationFrom().name }}</td>
+                                <td>{{ schedule.getLocationTo().name }}</td>
+                                <td>{{ schedule.movedate | date('d-m-Y m:s') }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                    <div class="contact-us-button">
+                        <a href="{{ path('schedule') }}" class="default-btn border-radius">Детальний розклад</a>
                     </div>
-                    {% endfor %}
                 </div>
             </div>
         </div>
@@ -58,11 +66,11 @@
                 <div class="row align-items-center">
                     <div class="col-lg-6 col-md-6">
                         <div class="repair-service-inner">
-                            <h3>Характеристика районів дослідження</h3>
+                            <h3>Детальний план руху потягів черкаської області</h3>
                             <h2>Черкаська область</h2>
-                            <p>Наша команда займається орнітологічними дослідженнями вже близько 20 років. Ареал дослідження - наш рідний край, Черкаська область.</p>
+                            <p>Переглянути актуальну інформацію про розклад руху потягів в черкаській області. Бронювання квитків.</p>
                             <div class="make-apoinment-button">
-                                <a href="{{ path('region_list') }}" class="default-btn border-radius">Детальніше про райони дослідження</a>
+                                <a href="{{ path('homepage') }}" class="default-btn border-radius">Розклад руху потягів</a>
                             </div>
                         </div>
                     </div>
@@ -78,124 +86,31 @@
         <div class="project-count-inner bg-grey section-pb section-pt-80">
             <div class="container">
                 <div class="row project-count-header">
-                    <h2>Статистика досліджень</h2>
+                    <h2>Статистика за останню добу</h2>
                 </div>
                 <div class="row">
                     <div class="col-lg-3 col-sm-6">
                         <div class="counter text-center">
                             <h3 class="counter-active">4582</h3>
-                            <p>Видів птахів виявлено</p>
+                            <p>пасажирів перевезено</p>
                         </div>
                     </div>
                     <div class="col-lg-3 col-sm-6">
                         <div class="counter text-center">
-                            <h3 class="counter-active">750</h3>
-                            <p>Актуальних досліджень станом на 2020 рік</p>
+                            <h3 class="counter-active">130</h3>
+                            <p>Потягів відправлених зі станції</p>
                         </div>
                     </div>
                     <div class="col-lg-3 col-sm-6">
                         <div class="counter text-center">
-                            <h3 class="counter-active">315</h3>
-                            <p>Актів досліджень</p>
+                            <h3 class="counter-active">1520</h3>
+                            <p>куплено білетів за останню добу</p>
                         </div>
                     </div>
                     <div class="col-lg-3 col-sm-6">
                         <div class="counter text-center">
-                            <h3 class="counter-active">3652</h3>
-                            <p>Нових записів в базі птахів регіону</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="your-opinion-area overly-bg-black opinion-bg section-ptb">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 ml-auto mr-auto">
-                        <div class="your-opinion-wrap">
-                            <h2>Галерея птахів</h2>
-                            <div class="opinion-content-inner">
-                                <div class="row">
-                                    {% for bird in birds %}
-                                        <div class="col col-md-4">
-                                            <a href="{{ path('single_bird', {'bird': bird.id}) }}">
-                                                <img class="gallery-item" src="{{ asset('/uploads/birds/' ~ bird.image) }}" alt="{{ bird.name }}" title="{{ bird.name }}">
-                                            </a>
-                                        </div>
-                                    {% endfor %}
-                                </div>
-                            </div>
-                            <div class="make-apoinment-button">
-                                <a href="{{ path('birds_list_gallery') }}" class="default-btn border-radius">Відкрити галерею</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="faq-area bg-grey section-ptb">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="section-title">
-                            <h4>Актуальні методи дослідження в орнітології</h4>
-                            <h2>Для орнітологів-початківців</h2>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-6 col-md-6">
-                        <div class="single-faq text-center">
-                            <div class="title-content">
-                                <h4>Картографічний метод дослідження</h4>
-                                <i class="fa fa-map"></i>
-                                <hr>
-                            </div>
-                            <p>Картографічний метод дослідження — метод наукового дослідження, у якому карта виступає як модель досліджуваного об'єкта і проміжна ланка між об'єктом і дослідником.</p>
-                            <div class="make-apoinment-button">
-                                <a href="{{ path('cartographic') }}" class="default-btn border-radius">Детальніше про дослідження</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6">
-                        <div class="single-faq text-center">
-                            <div class="title-content">
-                                <h4>Маршрутний метод дослідження</h4>
-                                <i class="fa fa-route"></i>
-                                <hr>
-                            </div>
-                            <p>Маршрутний метод дослідження дає уявлення про просторову зміну природних комплексів, а також еколого-географічні фактори їх формування, про генетичні сполучення природних комплексів.</p>
-                            <div class="make-apoinment-button">
-                                <a href="{{ path('roaded') }}" class="default-btn border-radius">Детальніше про дослідження</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6">
-                        <div class="single-faq text-center">
-                            <div class="title-content">
-                                <h4>Точковий метод дослідження</h4>
-                                <i class="fa fa-map-marker-alt"></i>
-                                <hr>
-                            </div>
-                            <p>Методика є різновидом обліку в очеретяних заростях, де час спостережень в одній точці залежить від цілей досліджень.</p>
-                            <div class="make-apoinment-button">
-                                <a href="{{ path('pointed') }}" class="default-btn border-radius">Детальніше про дослідження</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6">
-                        <div class="single-faq text-center">
-                            <div class="title-content">
-                                <h4>Комбінований метод дослідження</h4>
-                                <i class="fa fa-ruler-combined"></i>
-                                <hr>
-                            </div>
-                            <p>Комбінований метод передбачає різноманітне комбінування різних видів дослідження, одним із частих випадків комбінувань є картографічний та точковий методи. При комбінованому медоді інформативність дослідження збільшується в рази.</p>
-                            <div class="make-apoinment-button">
-                                <a href="{{ path('combined') }}" class="default-btn border-radius">Детальніше про дослідження</a>
-                            </div>
+                            <h3 class="counter-active">325</h3>
+                            <p>Записів в базі пасажирів регіону</p>
                         </div>
                     </div>
                 </div>
@@ -207,8 +122,8 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="something-new-inner text-center text-white">
-                            <h2>Приєднуйтесь до нашої спільноти</h2>
-                            <p>Якщо орнітологія - це твоя професія чи хоббі приєднуйся щоб разом дослідити різноманітну орнітофауну нашого краю!</p>
+                            <h2>Реєструйся для доступу до кабінету користувача</h2>
+                            <p>Отримай детальну інформацію про розклад руху потягів, прийдбай квитки онлайн!</p>
                             <div class="contact-us-button">
                                 <a href="{{ path('app_register') }}" class="default-btn border-radius">Реєстрація</a>
                                 <a href="{{ path('app_login') }}" class="primary-btn border-radius">Авторизація</a>

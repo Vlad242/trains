@@ -2,8 +2,8 @@
 
 namespace App\Controller;
 
-use App\Entity\Analysis;
-use App\Entity\Birds;
+use App\Entity\Schedule;
+use App\Entity\Ticket;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
@@ -23,14 +23,9 @@ class DefaultController extends AbstractController
     public function index()
     {
         $em = $this->getDoctrine()->getManager();
-        $birds = $em->getRepository(Birds::class)->findLastSixBirdsField();
-        $birdsGallery = $em->getRepository(Birds::class)->findForGalleryIndexField();
-        $analysis = $em->getRepository(Analysis::class)->findLastTen();
-
+        $scheduleList = $em->getRepository(Schedule::class)->findFixedByDateField();
         return $this->render('default/index.html.twig', [
-            'birds' => $birds,
-            'birdsGallery' => $birdsGallery,
-            'analysis' => $analysis
+            'scheduleList' => $scheduleList
         ]);
     }
 
@@ -40,44 +35,12 @@ class DefaultController extends AbstractController
     public function userPanel()
     {
         $em = $this->getDoctrine()->getManager();
-        $analysis = $em->getRepository(Analysis::class)->findBy([
+        $tickets = $em->getRepository(Ticket::class)->findBy([
             'user' => $this->getUser()->getId()
         ]);
 
         return $this->render('default/userPanel.html.twig', [
-            'analysis' => $analysis
+            'tickets' => $tickets
         ]);
-    }
-
-    /**
-     * @Route("/roaded", name="roaded")
-     */
-    public function roaded()
-    {
-        return $this->render('static/roaded.html.twig');
-    }
-
-    /**
-     * @Route("/cartographic", name="cartographic")
-     */
-    public function cartographic()
-    {
-        return $this->render('static/cartographic.html.twig');
-    }
-
-    /**
-     * @Route("/combined", name="combined")
-     */
-    public function combined()
-    {
-        return $this->render('static/combined.html.twig');
-    }
-
-    /**
-     * @Route("/pointed", name="pointed")
-     */
-    public function pointed()
-    {
-        return $this->render('static/pointed.html.twig');
     }
 }

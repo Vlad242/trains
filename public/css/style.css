@@ -2574,7 +2574,7 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
     11. Something New Css
 ------------------------------*/
 .something-new-bg {
-  background: url(../images/background2.jpg);
+  background: url(../images/bg2.jpg);
   background-size: cover;
 }
 .something-new-bg.overly-bg-black::before {
@@ -3015,7 +3015,7 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
     13. Your Opinion Css
 -----------------------------*/
 .opinion-bg {
-  background: url(../images/background_gallery.jpg);
+  background: url(../images/bg1.jpg);
   background-size: cover;
 }
 
